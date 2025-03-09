@@ -40,11 +40,16 @@ export default function Home() {
         }),
       });
       
+      const data = await response.json();
+      
+      if (data.message === '提示词为空') {
+        alert('请输入提示词后再进行优化');
+        return;
+      }
+      
       if (!response.ok) {
         throw new Error('优化请求失败');
       }
-      
-      const data = await response.json();
       
       // 更新状态
       setOptimizedPrompt(data.optimized.prompt);

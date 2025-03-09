@@ -30,7 +30,9 @@ export function EditorPanel({
         </h2>
         <button
           onClick={onOptimize}
-          className="h-10 px-4 bg-[#2563EB] text-white rounded-md hover:bg-[#3B82F6] transition-all duration-200 font-medium flex items-center"
+          disabled={!originalPrompt.trim()}
+          title={!originalPrompt.trim() ? "请先输入提示词" : "优化当前提示词"}
+          className={`h-10 px-4 rounded-md transition-all duration-200 font-medium flex items-center ${!originalPrompt.trim() ? 'bg-gray-300 cursor-not-allowed text-gray-500' : 'bg-[#2563EB] text-white hover:bg-[#3B82F6]'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />

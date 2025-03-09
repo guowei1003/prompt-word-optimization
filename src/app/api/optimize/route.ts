@@ -14,10 +14,19 @@ export async function POST(request: NextRequest) {
     const { prompt, parameters } = body;
     
     if (!prompt) {
-      return NextResponse.json(
-        { error: '提示词不能为空' },
-        { status: 400 }
-      );
+      return NextResponse.json({
+        original: {
+          prompt: '',
+          issues: [],
+          result: ''
+        },
+        optimized: {
+          prompt: '',
+          appliedRules: [],
+          result: ''
+        },
+        message: '提示词为空'
+      });
     }
     
     // 分析原始提示词
