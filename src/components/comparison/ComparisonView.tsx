@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ReactDiffViewer } from 'react-diff-viewer-continued';
+import ReactDiffViewer from 'react-diff-viewer-continued';
 
 interface ComparisonViewProps {
   originalResult: string;
